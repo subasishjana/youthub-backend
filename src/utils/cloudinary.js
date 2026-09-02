@@ -14,7 +14,7 @@ const uploadOnCloudinary = async (localFilePath) => {
   try {
     if (!localFilePath) return  null 
     // upload file cloudinary
-    await cloudinary.uploader.upload(localFilePath,{
+    const response = await cloudinary.uploader.upload(localFilePath,{
       resource_type : "auto"
     })
     //file has been upload successfully
@@ -26,7 +26,8 @@ const uploadOnCloudinary = async (localFilePath) => {
   }
 }
 
-cloudinary.v2.uploader.upload("https://upload.wikimedia.org/wikipedia/commons/a/ae/Olympic_flag.jpg",
-  {public_id : "olympic_flag"},
-  function (error,result) {console.log(result)}
-)
+export {uploadOnCloudinary}
+// cloudinary.v2.uploader.upload("https://upload.wikimedia.org/wikipedia/commons/a/ae/Olympic_flag.jpg",
+//   {public_id : "olympic_flag"},
+//   function (error,result) {console.log(result)}
+// )
